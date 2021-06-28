@@ -14,6 +14,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.io.Serializable;
@@ -61,7 +63,11 @@ public class Tarefa implements Serializable {
     @Column(name = "comentarios", length = 2000)
     private String comentarios;
 
-    @OneToMany(mappedBy = "tarefa_id", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tarefa_id")
     private List<Anexo> anexos = new ArrayList<>();
 
+    @ManyToOne
+    @JoinColumn(name = "tarefa_id", referencedColumnName = "id")
+    private Responsavel responsavel;
 }
