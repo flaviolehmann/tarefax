@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="202106281935-0" author="flavio.junior">
+        <createTable tableName="tarefa" remarks="Tabela para armazenar as tarefas do sistema">
+            <column name="id" type="integer" remarks="Campo de indentificação" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="TAREFA_PK"/>
+            </column>
+
+            <column name="titulo" type="varchar2(80)"
+                    remarks="Coluna que representa o título da tarefa"/>
+
+            <column name="descricao" type="varchar2(400)"
+                    remarks="Coluna que descreve"/>
+
+            <column name="data_inicio_prevista" type="date"
+                    remarks="Coluna que representa a data de inicio prevista da tarefa"/>
+
+            <column name="data_termino_prevista" type="date"
+                    remarks="Coluna que representa a data de termino prevista da tarefa"/>
+
+            <column name="data_inicio" type="date"
+                    remarks="Coluna que representa a data de inicio efetiva da tarefa"/>
+
+            <column name="data_termino" type="date"
+                    remarks="Coluna que representa a data de termino efetiva da tarefa"/>
+
+            <column name="tipo" type="varchar2(20)"
+                    remarks="Coluna que descreve o tipo da tarefa"/>
+
+            <column name="status" type="varchar2(20)"
+                    remarks="Coluna que descreve o status da tarefa"/>
+
+            <column name="comentarios" type="varchar2(2000)"
+                    remarks="Coluna que armazena os comentários da tarefa"/>
+
+            <column name="responsavel_id" type="integer" remarks="Campo de referencia ao responsavel">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="tarefa"
+                                 baseColumnNames="responsavel_id"
+                                 constraintName="tarefa_responsavel_fk"
+                                 referencedTableName="responsavel"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>

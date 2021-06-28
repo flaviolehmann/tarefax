@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="202106281947-0" author="flavio.junior">
+        <createTable tableName="anexo" remarks="Tabela para armazenar responsaveis por tarefas">
+            <column name="id" type="integer" remarks="Campo de indentificação" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ANEXO_PK"/>
+            </column>
+
+            <column name="titulo" type="varchar2(80)"
+                    remarks="Coluna que representa o título da tarefa"/>
+
+            <column name="hash" type="varchar2(200)"
+                    remarks="Coluna que representa o título da tarefa"/>
+
+            <column name="tamanho" type="varchar2(100)"
+                    remarks="Coluna que representa o título da tarefa"/>
+
+            <column name="tipo" type="varchar2(20)"
+                    remarks="Coluna que representa o título da tarefa"/>
+
+            <column name="tarefa_id" type="integer" remarks="Campo de indentificação">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="anexo"
+                                 baseColumnNames="tarefa_id"
+                                 constraintName="anexo_tarefa_fk"
+                                 referencedTableName="tarefa"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>
