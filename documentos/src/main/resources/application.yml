@@ -1,0 +1,9 @@
+application:
+  minio:
+    url: http://localhost:9000
+    bucket: documentos
+    access-key: admin
+    secret-key: admin123
+
+server:
+  port: 8081
