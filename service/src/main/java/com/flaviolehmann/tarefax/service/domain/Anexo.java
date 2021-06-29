@@ -26,7 +26,7 @@ public class Anexo implements Serializable {
     @Column(name = "titulo", length = 80)
     private String titulo;
 
-    @Column(name = "hash", length = 400)
+    @Column(name = "hash", length = 400, nullable = false)
     private String hash;
 
     @Column(name = "tamanho", length = 400)

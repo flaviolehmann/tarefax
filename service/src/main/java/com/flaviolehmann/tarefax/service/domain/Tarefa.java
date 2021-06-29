@@ -52,13 +52,13 @@ public class Tarefa implements Serializable {
     @Column(name = "data_termino")
     private LocalDate dataTermino;
 
-    @Column(name = "tipo", length = 20)
+    @Column(name = "tipo", nullable = false)
     @Enumerated(EnumType.STRING)
     private TipoTarefa tipo;
 
-    @Column(name = "status", length = 20)
+    @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
-    private StatusTarefa status;
+    private StatusTarefa status = StatusTarefa.ATIVO;
 
     @Column(name = "comentarios", length = 2000)
     private String comentarios;

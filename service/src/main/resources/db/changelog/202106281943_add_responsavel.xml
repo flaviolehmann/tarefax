@@ -20,7 +20,9 @@
                     remarks="Coluna que armazena a data de nascimento do responsavel"/>
 
             <column name="situacao" type="boolean"
-                    remarks="Coluna que armazena a situacao do responsavel"/>
+                    remarks="Coluna que armazena a situacao do responsavel">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
 </databaseChangeLog>
