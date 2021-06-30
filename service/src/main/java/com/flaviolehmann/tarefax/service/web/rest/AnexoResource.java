@@ -23,7 +23,6 @@ import java.util.List;
 public class AnexoResource {
 
     private final AnexoService anexoService;
-    private final TesteClient testeClient;
 
     @GetMapping
     public ResponseEntity<List<AnexoDTO>> obterTodos() {
