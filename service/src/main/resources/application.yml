@@ -1,0 +1,16 @@
+spring:
+    liquibase:
+        change-log: classpath:db/master.xml
+        drop-first: false
+    datasource:
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:postgresql://localhost:5432/postgres
+        username: postgres
+        password: TAREFAX
+
+server:
+    port: 8080
+
+application:
+    feign:
+        url: http://localhost:8081
