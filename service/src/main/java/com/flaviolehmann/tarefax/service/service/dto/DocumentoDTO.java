@@ -5,12 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AnexoDTO {
+public class DocumentoDTO {
 
-    private Long id;
-    private String titulo;
     private String hash;
-    private String tamanho;
-    private String tipo;
     private byte[] conteudo;
 }
