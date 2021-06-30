@@ -3,7 +3,6 @@ package com.flaviolehmann.tarefax.service.web.rest;
 import com.flaviolehmann.tarefax.service.service.AnexoService;
 import com.flaviolehmann.tarefax.service.service.dto.AnexoDTO;
 import com.flaviolehmann.tarefax.service.service.dto.TarefaDTO;
-import com.flaviolehmann.tarefax.service.service.feign.TesteClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
