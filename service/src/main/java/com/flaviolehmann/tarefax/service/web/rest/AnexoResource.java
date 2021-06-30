@@ -26,13 +26,13 @@ public class AnexoResource {
     private final TesteClient testeClient;
 
     @GetMapping
-    public ResponseEntity<String> obterTodos() {
-        return ResponseEntity.ok(testeClient.teste().getBody());
+    public ResponseEntity<List<AnexoDTO>> obterTodos() {
+        return ResponseEntity.ok(anexoService.obterTodos());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<String> obterPorId(@PathVariable("id") Long id) {
-        return ResponseEntity.ok(testeClient.teste().getBody());
+    public ResponseEntity<AnexoDTO> obterPorId(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(anexoService.obterPorId(id));
     }
 
     @DeleteMapping("/{id}")
