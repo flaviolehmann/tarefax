@@ -19,19 +19,19 @@ public class DocumentoResource {
 
     private final DocumentoService documentoService;
 
-    @GetMapping("/{hash}")
-    public ResponseEntity<DocumentoDTO> recuperar(@PathVariable String hash) {
-        return ResponseEntity.ok(documentoService.recuperar(hash));
+    @GetMapping("/{uuid}")
+    public ResponseEntity<DocumentoDTO> recuperar(@PathVariable String uuid) {
+        return ResponseEntity.ok(documentoService.recuperar(uuid));
     }
 
     @PutMapping
-    public ResponseEntity<DocumentoDTO> salvar(@RequestBody DocumentoDTO documentoDTO) {
-        return ResponseEntity.ok(documentoDTO);
+    public ResponseEntity<String> salvar(@RequestBody DocumentoDTO documentoDTO) {
+        return ResponseEntity.ok(documentoService.salvar(documentoDTO));
     }
 
-    @DeleteMapping("/{hash}")
-    public ResponseEntity<Void> excluir(@PathVariable String hash) {
-        documentoService.excluir(hash);
+    @DeleteMapping("/{uuid}")
+    public ResponseEntity<Void> excluir(@PathVariable String uuid) {
+        documentoService.excluir(uuid);
         return ResponseEntity.noContent().build();
     }
 

@@ -4,6 +4,7 @@ package com.flaviolehmann.tarefax.service.domain;
 import com.flaviolehmann.tarefax.service.domain.enumeration.StatusTarefa;
 import com.flaviolehmann.tarefax.service.domain.enumeration.TipoTarefa;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.CascadeType;
@@ -68,6 +69,12 @@ public class Tarefa implements Serializable {
     private List<Anexo> anexos = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name = "tarefa_id", referencedColumnName = "id")
     private Responsavel responsavel;
+
+    public Tarefa(Long id) {
+        this.id = id;
+    }
+
+    public Tarefa() {
+    }
 }

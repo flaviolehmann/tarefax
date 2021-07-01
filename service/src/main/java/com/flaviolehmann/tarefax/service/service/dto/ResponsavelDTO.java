@@ -3,11 +3,12 @@ package com.flaviolehmann.tarefax.service.service.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Getter
 @Setter
-public class ResponsavelDTO {
+public class ResponsavelDTO implements Serializable {
 
     private Long id;
     private String nome;

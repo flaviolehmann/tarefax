@@ -5,13 +5,14 @@ import com.flaviolehmann.tarefax.service.domain.enumeration.TipoTarefa;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
-public class TarefaDTO {
+public class TarefaDTO implements Serializable {
 
     private Long id;
     private String titulo;

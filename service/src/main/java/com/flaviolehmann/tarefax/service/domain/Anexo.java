@@ -34,4 +34,7 @@ public class Anexo implements Serializable {
 
     @Column(name = "tipo", length = 400)
     private String tipo;
+
+    @Column(name = "tarefa_id")
+    private Long idTarefa;
 }
