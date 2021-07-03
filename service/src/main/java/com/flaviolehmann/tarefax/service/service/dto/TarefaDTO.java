@@ -21,8 +21,9 @@ public class TarefaDTO implements Serializable {
     private LocalDate dataTerminoPrevista;
     private LocalDate dataInicio;
     private LocalDate dataTermino;
-    private TipoTarefa tipo;
-    private StatusTarefa status;
+    private TipoTarefa tipo = TipoTarefa.TESTE;
+    private StatusTarefa status = StatusTarefa.ATIVO;
     private String comentarios;
+    private ResponsavelDTO responsavel;
     private List<AnexoDTO> anexos = new ArrayList<>();
 }

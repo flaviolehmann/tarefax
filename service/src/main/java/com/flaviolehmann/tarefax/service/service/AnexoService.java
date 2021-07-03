@@ -1,16 +1,19 @@
 package com.flaviolehmann.tarefax.service.service;
 
 import com.flaviolehmann.tarefax.service.domain.Anexo;
-import com.flaviolehmann.tarefax.service.domain.Tarefa;
 import com.flaviolehmann.tarefax.service.repository.AnexoRepository;
 import com.flaviolehmann.tarefax.service.service.dto.AnexoDTO;
 import com.flaviolehmann.tarefax.service.service.dto.DocumentoDTO;
+import com.flaviolehmann.tarefax.service.service.error.RegistroNaoEncontradoException;
 import com.flaviolehmann.tarefax.service.service.feign.DocumentosClient;
 import com.flaviolehmann.tarefax.service.service.mapper.AnexoMapper;
+import com.flaviolehmann.tarefax.service.service.util.TarefaxConstantes;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.MessageFormat;
+import java.text.NumberFormat;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,19 +27,15 @@ public class AnexoService {
     private final AnexoMapper anexoMapper;
 
     public AnexoDTO salvar(AnexoDTO anexoDTO) {
+        formatarTamanho(anexoDTO);
         String hash = persistirNoMinio(anexoDTO);
         anexoDTO.setHash(hash);
-        anexoDTO.setTamanho(anexoDTO.getConteudo().length() + " KB");
         return anexoMapper.toDto(persistirAnexo(anexoDTO));
     }
 
-    private Anexo persistirAnexo(AnexoDTO anexoDTO) {
-        Anexo anexo = anexoMapper.toEntity(anexoDTO);
-        return anexoRepository.save(anexo);
-    }
-
-    public AnexoDTO obterPorId(Long id) {
-        return anexoMapper.toDto(findById(id));
+    public AnexoDTO obterPorId(Long idAnexo) {
+        return anexoRepository.findById(idAnexo).map(anexoMapper::toDto)
+                .orElseThrow(RegistroNaoEncontradoException::new);
     }
 
     public List<AnexoDTO> obterTodos() {
@@ -44,9 +43,16 @@ public class AnexoService {
     }
 
     public void deletar(Long idAnexo) {
-        String hash = findById(idAnexo).getHash();
+        String hash = obterPorId(idAnexo).getHash();
         anexoRepository.deleteByHash(hash);
         documentosClient.excluir(hash);
+    }
+
+    private void formatarTamanho(AnexoDTO anexoDTO) {
+        String tamanhoFormatado = MessageFormat.format("{0} {1}",
+                NumberFormat.getNumberInstance().format(anexoDTO.getConteudo().length()),
+                TarefaxConstantes.UNIDADE_MEDIDA_TAMANHO);
+        anexoDTO.setTamanho(tamanhoFormatado);
     }
 
     private String persistirNoMinio(AnexoDTO anexoDTO) {
@@ -56,8 +62,9 @@ public class AnexoService {
         return documentosClient.salvar(documentoDTO).getBody();
     }
 
-    private Anexo findById(Long idAnexo) {
-        return anexoRepository.findById(idAnexo).orElseThrow(RuntimeException::new);
+    private Anexo persistirAnexo(AnexoDTO anexoDTO) {
+        Anexo anexo = anexoMapper.toEntity(anexoDTO);
+        return anexoRepository.save(anexo);
     }
 
 }

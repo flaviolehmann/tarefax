@@ -1,14 +1,11 @@
 package com.flaviolehmann.tarefax.documentos.service;
 
-import ch.qos.logback.core.util.ContentTypeUtil;
 import com.flaviolehmann.tarefax.documentos.config.ApplicationProperties;
 import com.flaviolehmann.tarefax.documentos.service.dto.DocumentoDTO;
 import io.minio.GetObjectArgs;
-import io.minio.GetObjectResponse;
 import io.minio.MinioClient;
 import io.minio.PutObjectArgs;
 import io.minio.RemoveObjectArgs;
-import jdk.jfr.ContentType;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;

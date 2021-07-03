@@ -10,3 +10,8 @@ services:
       file: minio/minio.yml
       service: minio
     container_name: tarefax-minio
+  tarefax-elasticsearch:
+    extends:
+      file: elasticsearch/elasticsearch.yml
+      service: elasticsearch
+    container_name: tarefax-elasticsearch

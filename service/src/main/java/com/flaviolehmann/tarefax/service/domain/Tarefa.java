@@ -4,7 +4,6 @@ package com.flaviolehmann.tarefax.service.domain;
 import com.flaviolehmann.tarefax.service.domain.enumeration.StatusTarefa;
 import com.flaviolehmann.tarefax.service.domain.enumeration.TipoTarefa;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.CascadeType;
@@ -12,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -68,7 +68,7 @@ public class Tarefa implements Serializable {
     @JoinColumn(name = "tarefa_id")
     private List<Anexo> anexos = new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Responsavel responsavel;
 
     public Tarefa(Long id) {
