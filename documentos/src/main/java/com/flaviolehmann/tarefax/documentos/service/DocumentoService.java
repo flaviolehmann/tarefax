@@ -2,10 +2,12 @@ package com.flaviolehmann.tarefax.documentos.service;
 
 import com.flaviolehmann.tarefax.documentos.config.ApplicationProperties;
 import com.flaviolehmann.tarefax.documentos.service.dto.DocumentoDTO;
+import com.flaviolehmann.tarefax.documentos.service.error.RegistroNaoEncontradoException;
 import io.minio.GetObjectArgs;
 import io.minio.MinioClient;
 import io.minio.PutObjectArgs;
 import io.minio.RemoveObjectArgs;
+import io.minio.errors.ErrorResponseException;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
@@ -26,10 +28,13 @@ public class DocumentoService {
 
     @SneakyThrows
     public DocumentoDTO recuperar(String uuid) {
-        InputStream object = minioClient.getObject(GetObjectArgs.builder()
+        try (InputStream object = minioClient.getObject(GetObjectArgs.builder()
                 .bucket(applicationProperties.getMinio().getBucket())
-                .object(uuid).build());
-        return documentoDTOFromConteudo(uuid, object);
+                .object(uuid).build())) {
+            return documentoDTOFromConteudo(uuid, object);
+        } catch (ErrorResponseException e) {
+            throw new RegistroNaoEncontradoException();
+        }
     }
 
     @SneakyThrows

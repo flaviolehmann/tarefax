@@ -10,6 +10,8 @@ spring:
 
 server:
     port: 8080
+    error:
+        path: /error
 
 application:
     feign:

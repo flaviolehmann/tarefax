@@ -38,6 +38,11 @@ public class AnexoService {
                 .orElseThrow(RegistroNaoEncontradoException::new);
     }
 
+    public AnexoDTO obterPorHash(String hash) {
+        return anexoRepository.findByHash(hash).map(anexoMapper::toDto)
+                .orElseThrow(RegistroNaoEncontradoException::new);
+    }
+
     public List<AnexoDTO> obterTodos() {
         return anexoMapper.toDto(anexoRepository.findAll());
     }
