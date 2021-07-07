@@ -1,15 +1,69 @@
 <p-card header="Tarefas">
     <button pButton icon="pi pi-search" label="ATUALIZAR" class="p-button-success"
             (click)="onBuscar()"></button>
-    <p-table class="table-tarefas" [value]="tarefas">
+    <p-table class="table-tarefas" [value]="tarefas" [globalFilterFields]="['titulo']">
         <ng-template pTemplate="header">
             <tr>
-                <th scope="col"> Título </th>
-                <th scope="col"> Data Início Prevista </th>
-                <th scope="col"> Data Início </th>
-                <th scope="col"> Data Término Prevista </th>
-                <th scope="col"> Data Término </th>
-                <th scope="col"> Responsável </th>
+                <th scope="col">
+                    <span class="p-d-flex p-jc-between p-ai-center">
+                        Título
+                    </span>
+                    <span class="ui-float-label margin-top-20">
+                        <input id="float-input" type="text" size="30" [(ngModel)]="filtro.titulo"
+                               pInputText>
+                        <label for="float-input">  </label>
+                    </span>
+                </th>
+                <th scope="col">
+                    <span class="p-d-flex p-jc-between p-ai-center">
+                        Data Início Prevista
+                    </span>
+                    <span class="ui-float-label margin-top-20">
+                        <p-inputMask id="float-input4" [(ngModel)]="filtro.dataInicioPrevista"
+                                     mask="99/99/9999"></p-inputMask>
+                        <label for="float-input4">  </label>
+                    </span>
+                </th>
+                <th scope="col">
+                    <span class="p-d-flex p-jc-between p-ai-center">
+                        Data Início
+                    </span>
+                    <span class="ui-float-label margin-top-20">
+                        <p-inputMask id="float-input5" [(ngModel)]="filtro.dataInicio"
+                                     mask="99/99/9999"></p-inputMask>
+                        <label for="float-input5">  </label>
+                    </span>
+                </th>
+                <th scope="col">
+                    <span class="p-d-flex p-jc-between p-ai-center">
+                        Data Término Prevista
+                    </span>
+                    <span class="ui-float-label margin-top-20">
+                        <p-inputMask id="float-input6" [(ngModel)]="filtro.dataTerminoPrevista"
+                                     mask="99/99/9999"></p-inputMask>
+                        <label for="float-input6">  </label>
+                    </span>
+                </th>
+                <th scope="col">
+                    <span class="p-d-flex p-jc-between p-ai-center">
+                        Data Término
+                    </span>
+                    <span class="ui-float-label margin-top-20">
+                        <p-inputMask id="float-input3" [(ngModel)]="filtro.dataTermino"
+                                     mask="99/99/9999"></p-inputMask>
+                        <label for="float-input3">  </label>
+                    </span>
+                </th>
+                <th scope="col">
+                    <span class="p-d-flex p-jc-between p-ai-center">
+                        Responsável
+                    </span>
+                    <span class="ui-float-label margin-top-20">
+                        <input id="float-input2" type="text" size="30"
+                               [(ngModel)]="filtro.nomeResponsavel" pInputText>
+                        <label for="float-input2">  </label>
+                    </span>
+                </th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-tarefa>

@@ -31,7 +31,7 @@ export class TarefasComponent implements OnInit {
 
     private buscarTarefas(): void {
         this.blockUI.start();
-        this.tarefasService.search(this.filtro)
+        this.tarefasService.search(this.filtro.formatarData())
             .pipe(finalize(() => this.blockUI.stop()))
             .subscribe(tarefas => this.tarefas = tarefas.content);
     }
