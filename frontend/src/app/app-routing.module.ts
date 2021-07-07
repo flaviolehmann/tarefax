@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { DiarioErrosComponent } from './components/diario-erros/diario-erros.component';
-import { LoginSuccessComponent } from '@nuvem/angular-base';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {TarefasModule} from "./modules/tarefas/tarefas.module";
+import {AnexosModule} from "./modules/anexos/anexos.module";
 
 const routes: Routes = [
-    { path: 'diario-erros', component: DiarioErrosComponent, data: { breadcrumb: 'Diário de Erros'} },
-    { path: 'login-success', component: LoginSuccessComponent }
+    { path: 'tarefas', loadChildren: () => TarefasModule, data: { breadcrumb: 'Tarefas' } },
+    { path: 'anexos', loadChildren: () => AnexosModule, data: { breadcrumb: 'Anexos' } },
 ];
 
 @NgModule({
