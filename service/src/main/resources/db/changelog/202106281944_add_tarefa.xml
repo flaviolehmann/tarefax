@@ -29,11 +29,14 @@
                     remarks="Coluna que representa a data de termino efetiva da tarefa"/>
 
             <column name="tipo" type="varchar2(20)"
-                    remarks="Coluna que descreve o tipo da tarefa"/>
+                    remarks="Coluna que descreve o tipo da tarefa">
+                <constraints nullable="false"/>
+            </column>
 
             <column name="status" type="varchar2(20)"
-                    remarks="Coluna que descreve o status da tarefa"/>
-
+                    remarks="Coluna que descreve o status da tarefa">
+                <constraints nullable="false"/>
+            </column>
             <column name="comentarios" type="varchar2(2000)"
                     remarks="Coluna que armazena os comentários da tarefa"/>
 

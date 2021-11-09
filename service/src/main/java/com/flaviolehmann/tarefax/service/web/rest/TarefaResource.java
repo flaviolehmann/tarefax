@@ -1,8 +1,13 @@
 package com.flaviolehmann.tarefax.service.web.rest;
 
+import com.flaviolehmann.tarefax.service.domain.document.TarefaDocument;
+import com.flaviolehmann.tarefax.service.service.TarefaFiltro;
 import com.flaviolehmann.tarefax.service.service.TarefaService;
 import com.flaviolehmann.tarefax.service.service.dto.TarefaDTO;
+import com.flaviolehmann.tarefax.service.service.elasticsearch.TarefaSearchService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +26,12 @@ import java.util.List;
 public class TarefaResource {
 
     private final TarefaService tarefaService;
+    private final TarefaSearchService tarefaSearchService;
+
+    @PostMapping("/_search")
+    public ResponseEntity<Page<TarefaDocument>> search(@RequestBody TarefaFiltro filtro, Pageable pageable) {
+        return ResponseEntity.ok(tarefaSearchService.search(filtro, pageable));
+    }
 
     @GetMapping
     public ResponseEntity<List<TarefaDTO>> obterTodos() {

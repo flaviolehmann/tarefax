@@ -5,24 +5,26 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <changeSet id="202106281947-0" author="flavio.junior">
-        <createTable tableName="anexo" remarks="Tabela para armazenar responsaveis por tarefas">
+        <createTable tableName="anexo" remarks="Tabela para armazenar anexos de tarefas">
             <column name="id" type="integer" remarks="Campo de indentificação" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="ANEXO_PK"/>
             </column>
 
             <column name="titulo" type="varchar2(80)"
-                    remarks="Coluna que representa o título da tarefa"/>
+                    remarks="Coluna que representa o título do anexo"/>
 
             <column name="hash" type="varchar2(200)"
-                    remarks="Coluna que representa o título da tarefa"/>
+                    remarks="Coluna que representa a hash do anexo">
+                <constraints nullable="false"/>
+            </column>
 
             <column name="tamanho" type="varchar2(100)"
-                    remarks="Coluna que representa o título da tarefa"/>
+                    remarks="Coluna que representa o tamanho do anexo"/>
 
             <column name="tipo" type="varchar2(20)"
-                    remarks="Coluna que representa o título da tarefa"/>
+                    remarks="Coluna que representa a extensao do anexo"/>
 
-            <column name="tarefa_id" type="integer" remarks="Campo de indentificação">
+            <column name="tarefa_id" type="integer" remarks="Referencia a tarefa">
                 <constraints nullable="false"/>
             </column>
         </createTable>
