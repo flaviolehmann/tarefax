@@ -1,0 +1,50 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.github.flaviolehmann.tarefax"
+    },
+    "jhipsterVersion": "6.9.1",
+    "applicationType": "microservice",
+    "baseName": "tarefaxbatch",
+    "packageName": "com.github.flaviolehmann.tarefax",
+    "packageFolder": "com/github/flaviolehmann/tarefax",
+    "serverPort": "8082",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "no",
+    "devDatabaseType": "no",
+    "prodDatabaseType": "no",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MWY2MTM2NWVjZjI5NDNmYTQ1MTgzYTFhMDBmMjJlODhlZmRlMzYxOTc0MTRhMDZhY2Q2Njg2MjIwOWRkZjE4N2UyZjY1N2I0ZTQzMGZlMmNiNTVjNDMxNmQyYTBlMTU4Mzg3OTVhYzBjY2Y2MjIyZTQxNDJhNTgwMzllNjIyZWQ=",
+    "embeddableLaunchScript": false,
+    "userDetailsResource": false,
+    "microserviceStackType": "SpringCloud",
+    "creationTimestamp": 1636416123229,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [
+      {
+        "name": "generator-jhipster-nuvem-java",
+        "version": "6.10.4"
+      }
+    ],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "blueprints": [
+      {
+        "name": "generator-jhipster-nuvem-java",
+        "version": "6.10.4"
+      }
+    ],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
