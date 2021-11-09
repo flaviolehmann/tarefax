@@ -47,9 +47,9 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/tarefaxservice
-    username: tarefaxservice
-    password:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: TAREFAX
     hikari:
       poolName: Hikari
       auto-commit: false
