@@ -10,6 +10,6 @@ services:
     ports:
       - '8761:8761'
     container_name: jhipster-registry
-    cpus: 1
-    mem_limit: 512m
+    cpus: 2
+    mem_limit: 1024m
     mem_reservation: 128M
