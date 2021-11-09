@@ -1,0 +1,15 @@
+version: '2.2'
+services:
+  jhipster-registry:
+    image: jhipster/jhipster-registry:v3.3.0
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=dev,native,swagger
+      - SPRING_SECURITY_USER_PASSWORD=admin
+      - JHIPSTER_REGISTRY_PASSWORD=admin
+    ports:
+      - '8761:8761'
+    container_name: jhipster-registry
+    cpus: 1
+    mem_limit: 512m
+    mem_reservation: 128M
