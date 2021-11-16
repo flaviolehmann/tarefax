@@ -18,12 +18,12 @@ class ArchTest {
 
         noClasses()
             .that()
-                .resideInAnyPackage("com.github.flaviolehmann.tarefax.service..")
+            .resideInAnyPackage("com.github.flaviolehmann.tarefax.service..")
             .or()
-                .resideInAnyPackage("com.github.flaviolehmann.tarefax.repository..")
+            .resideInAnyPackage("com.github.flaviolehmann.tarefax.repository..")
             .should().dependOnClassesThat()
-                .resideInAnyPackage("..com.github.flaviolehmann.tarefax.web..")
-        .because("Services and repositories should not depend on web layer")
-        .check(importedClasses);
+            .resideInAnyPackage("..com.github.flaviolehmann.tarefax.web..")
+            .because("Services and repositories should not depend on web layer")
+            .check(importedClasses);
     }
 }

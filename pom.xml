@@ -11,7 +11,9 @@
 
     <modules>
         <module>tarefaxbatch</module>
+        <module>tarefaxdocuments</module>
         <module>tarefaxmailer</module>
+        <module>tarefaxsearch</module>
         <module>tarefaxservice</module>
     </modules>
 </project>

@@ -15,8 +15,13 @@ services:
       file: jhipster-registry/jhipster-registry.yml
       service: jhipster-registry
     container_name: tarefax-jhipster-registry
-  redis-gprepfter:
+  tarefax-redis:
     extends:
       file: redis/redis.yml
       service: redis
     container_name: tarefax-redis
+  tarefax-rabbitmq:
+    extends:
+      file: rabbitmq/rabbitmq.yml
+      service: rabbitmq
+    container_name: tarefax-rabbitmq

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <databaseChangeLog
-    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
-    
-    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
-    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+    <!--    <includeAll path="changelog" relativeToChangelogFile="true" />-->
+    <include file="config/liquibase/changelog/202106281943_add_responsavel.xml"/>
+    <include file="config/liquibase/changelog/202106281944_add_tarefa.xml"/>
+    <include file="config/liquibase/changelog/202106281947_add_anexo.xml"/>
 </databaseChangeLog>

@@ -1,0 +1,15 @@
+version: '2.2'
+services:
+  rabbitmq:
+    image: rabbitmq:3.7-rc-management-alpine
+    ports:
+      - '15671:15671'
+      - '15672:15672'
+      - '25672:25672'
+      - '4369:4369'
+      - '5671:5671'
+      - '5672:5672'
+    container_name: tarefax-rabbitmq
+    cpus: 1
+    mem_limit: 128m
+    mem_reservation: 32M

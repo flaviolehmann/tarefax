@@ -4,7 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/tarefax.iml" filepath="$PROJECT_DIR$/.idea/tarefax.iml" />
       <module fileurl="file://$PROJECT_DIR$/tarefaxbatch/tarefaxbatch.iml" filepath="$PROJECT_DIR$/tarefaxbatch/tarefaxbatch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tarefaxdocuments/tarefaxdocuments.iml" filepath="$PROJECT_DIR$/tarefaxdocuments/tarefaxdocuments.iml" />
       <module fileurl="file://$PROJECT_DIR$/tarefaxmailer/tarefaxmailer.iml" filepath="$PROJECT_DIR$/tarefaxmailer/tarefaxmailer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tarefaxsearch/tarefaxsearch.iml" filepath="$PROJECT_DIR$/tarefaxsearch/tarefaxsearch.iml" />
       <module fileurl="file://$PROJECT_DIR$/tarefaxservice/tarefaxservice.iml" filepath="$PROJECT_DIR$/tarefaxservice/tarefaxservice.iml" />
     </modules>
   </component>
