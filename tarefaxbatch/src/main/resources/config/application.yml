@@ -113,6 +113,11 @@ spring:
     basename: i18n/messages
   main:
     allow-bean-definition-overriding: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
   task:
     execution:
       thread-name-prefix: tarefaxbatch-task-
@@ -181,3 +186,13 @@ jhipster:
 # ===================================================================
 
 # application:
+application:
+  feign:
+    url: http://localhost:8081
+  rabbitmq:
+    exchanges:
+      elasticsearch-ex: tarefax-elasticsearch-ex
+      mail-ex: tarefax-mail-ex
+    queues:
+      mail-queue: tarefax-mail-q
+      elasticsearch-queue: tarefax-elasticsearch-q
